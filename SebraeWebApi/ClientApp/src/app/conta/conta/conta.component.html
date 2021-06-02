@@ -1,0 +1,64 @@
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="contas && contas.length">
+    <tr *ngFor="let conta of contas">
+      <td>
+
+      </td>
+      <td>{{conta.contaId}}</td>
+      <td>{{conta.nome}}</td>
+      <td>{{conta.Descricao}}</td>
+      <td>
+        <div class="btn-group">
+          <button class="btn btn-sm btn-success" tooltip="Reservar" >
+            <i class="fa fa-edit"></i>
+          </button>
+          &nbsp;
+          <button class="btn btn-sm btn-success" tooltip="Emprestimos" >
+            <i class="fa fa-eraser"></i>
+          </button>
+        </div>
+      </td>
+
+    </tr>
+  </tbody>
+  <tfoot *ngIf="!contas">
+    <tr>
+      <td colspan="7" class="text-center">
+        <h4>
+          Nenhum evento encontrado!
+        </h4>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right"
+    aria-label="Close" >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+  <form [formGroup]="registerForm">
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <input type="text" class="form-control"
+        formControlName="nome" placeholder="">
+        <button class="btn btn-primary ml-auto" (click)="deletar()">
+          Salvar
+        </button>
+        </div>
+      </div>
+  </form>
+</div>
+</ng-template>
